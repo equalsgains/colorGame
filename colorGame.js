@@ -8,6 +8,7 @@ var colors = ["rgb(255, 0, 0)",
 var squares = document.querySelectorAll(".square");
 var pickedColor = colors[3];
 var colorDisplay = document.querySelector("#colorDisplay");
+var messageDisplay = document.querySelector("#message");
 
 colorDisplay.textContent = pickedColor;
 
@@ -22,10 +23,21 @@ for (var i = 0; i < squares.length; i++){
     var clickedColor = this.style.background;
     //compare color to pciker
     if (clickedColor === pickedColor) {
-      alert("correct");
+      messageDisplay.textContent = "Correct!";
+      changeColors(clickedColor);
+      // messageDisplay.style.color = "green";
     } else {
       this.style.background = "#232323";
+      messageDisplay.textContent = "TRY AGAIN!";
     }
 
   });
+}
+
+function changeColors(color){
+  //loop through all squares
+  for(var i = 0; i < colors.length; i++){
+    squares[i].style.background = color;
+  }
+  //change each color to match given color
 }
