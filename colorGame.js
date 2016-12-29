@@ -12,13 +12,13 @@ var messageDisplay = document.querySelector("#message");
 
 colorDisplay.textContent = pickedColor;
 
-
 for (var i = 0; i < squares.length; i++){
+  var square = squares[i];
   //add initial colors to squares
-  squares[i].style.background = colors[i];
+  square.style.background = colors[i];
 
   //add click listeners to square
-  squares[i].addEventListener("click", function(){
+  square.addEventListener("click", function(){
     //grab color of cliked square
     var clickedColor = this.style.background;
     //compare color to pciker
